@@ -1,22 +1,46 @@
 {
-  "name": "electron-quick-start",
+  "name": "arcology-client",
+  "productName": "Arcology Client",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A client for the FP arcology simulation",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "tsc && concurrently \"npm run tsc:w\" \"electron .\" ",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings",
+    "postinstall": "typings install"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "Angular",
+    "Arcology"
   ],
-  "author": "GitHub",
+  "author": "Grzegorz Palian",
   "license": "CC0-1.0",
+  "dependencies": {
+    "@angular/common": "~4.0.0",
+    "@angular/compiler": "~4.0.0",
+    "@angular/core": "~4.0.0",
+    "@angular/forms": "~4.0.0",
+    "@angular/http": "~4.0.0",
+    "@angular/platform-browser": "~4.0.0",
+    "@angular/platform-browser-dynamic": "~4.0.0",
+    "@angular/router": "~4.0.0",
+    "@types/electron": "^1.4.35",
+    "@types/node": "^7.0.12",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.1",
+    "systemjs": "0.19.40",
+    "zone.js": "^0.8.4"
+  },
   "devDependencies": {
-    "electron": "~1.6.2"
+    "concurrently": "^2.2.0",
+    "electron": "~1.6.2",
+    "electron-packager": "^8.6.0",
+    "typescript": "^2.0.2",
+    "typings": "^1.3.2"
   }
 }

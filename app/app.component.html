@@ -1,0 +1,69 @@
+
+<!-- Nav bar -->
+<nav class="nav">
+  <!-- App title -->
+  <div class="nav-left">
+    <h1 class="nav-item title is-3">{{title}}</h1>
+  </div>
+
+  <!-- Misc simulation info -->
+  <div class="nav-center">
+    <div class="nav-item">
+      <turn-display></turn-display>
+    </div>
+    <div class="nav-item">
+      <simulation-status></simulation-status>
+    </div>
+  </div>
+
+  <!-- App controls -->
+  <div class="nav-right">
+    <div class="nav-item">
+      <!-- Refreshes the status in case it was changed externally -->
+      <button class="nav-item button" (click)="arcologyService.refreshStatus()">Click to refresh</button>
+
+      <!-- Restarts the simulation -->
+      <button class="nav-item button is-danger" (click)="arcologyService.restartSimulation()">Restart</button>
+    </div>
+  </div>
+</nav>
+
+<nav class="nav has-shadow">
+  <div class="nav-center">
+    <div class="nav-item">
+      <identifier-display></identifier-display>
+    </div>
+  </div>
+</nav>
+
+<score-display></score-display>
+
+<!-- Main area -->
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <!-- Status display and commands -->
+      <div class="column is-full-tablet is-half-desktop">
+        <div *ngFor="let parameter of statusParameters" class="columns">
+          <status-display class="column" *ngIf="parameter.displayLabel != ''" [identifier]="parameter.parameterIdentifier" [label]="parameter.displayLabel" ></status-display>
+          <command class="column"
+            [label]="parameter.commandLabel"
+            [commandType]="parameter.commandType"
+            [value]="parameter.commandValue"
+            [minValue]="parameter.commandMinValue"
+            [maxValue]="parameter.commandMaxValue">
+          </command>
+        </div>
+      </div>
+
+      <!-- Runes, events and misc info -->
+      <div class="column is-full-tablet is-half-desktop">
+        <div class="columns is-multiline">
+          <runes-display class="column is-full"></runes-display>
+          <events-display class="column is-full"></events-display>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

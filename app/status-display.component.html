@@ -1,0 +1,11 @@
+<div class="box">
+  <h3 class="label">{{label}}</h3>
+  <h2 class="tag is-large">{{value | number:'1.0-2'}}</h2>
+  <h2 class="tag is-large"
+    *ngIf="lastValueDifference != 0"
+    [ngClass]="{
+      'is-success':(lastValueDifference > 0),
+      'is-danger':(lastValueDifference < 0)
+    }"
+  >{{(lastValueDifference > 0 ? '+': '')}}{{ lastValueDifference | number:'1.0-2'}}</h2>
+</div>

@@ -1,0 +1,22 @@
+<div class="box">
+  <h2 class="title is-4">Events</h2>
+
+  <!-- Filter events checkbox -->
+  <div class="field">
+    <p class="control">
+      <label class="checkbox">
+        <input [(ngModel)]="filterResults" type="checkbox">
+        Filter important events
+      </label>
+    </p>
+  </div>
+
+  <!-- Table displaying events -->
+  <table class="table is-striped">
+    <ng-container *ngFor="let event of events.slice().reverse(), let i = index">
+      <tr *ngIf="!filterResults || eventIsImportant(event)">
+        <td><b *ngIf="i < (events.length - lastEvents.length)">New</b> {{event}}</td>
+      </tr>
+    </ng-container>
+  </table>
+</div>

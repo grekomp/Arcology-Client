@@ -1,0 +1,13 @@
+<div class="box">
+  <h2 class="title is-4">Neho Runes</h2>
+  <p>
+    <span class="tag is-large" *ngFor="let rune of runes" [ngClass]="{
+      'is-success': (rune == 'OH' || rune == 'DH'),
+      'is-warning': (rune == 'DE'),
+      'is-danger': (rune == 'NN')
+    }">
+      {{rune}}
+    </span>
+  </p>
+
+</div>

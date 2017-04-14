@@ -1,0 +1,12 @@
+<div class="hero is-light" *ngIf="isTerminated">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1">Score</h1>
+      <h3 class="title is-3">Total Score: {{totalScore}}</h3>
+      <h3 class="title is-3">Experiment Score: {{experimentScore}}</h3>
+      <h3 class="title is-3">Event Score: {{eventScore}}</h3>
+
+      <log-save class="column is-full"></log-save>
+    </div>
+  </div>
+</div>

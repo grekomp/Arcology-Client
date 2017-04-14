@@ -1,0 +1,11 @@
+<div class="box">
+  <label class="label">{{label}}</label>
+  <div class="field is-grouped">
+    <p class="control is-expanded">
+      <input class="input" *ngIf="showInput" type="number" [(ngModel)]="value" min="{{minValue}}" max="{{maxValue}}">
+    </p>
+    <p class="control">
+      <button class="button is-primary" (click)="execute()" [disabled]="isTerminated">Execute</button>
+    </p>
+  </div>
+</div>
